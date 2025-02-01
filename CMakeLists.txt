@@ -12,7 +12,7 @@ list(APPEND CMAKE_MODULE_PATH "${CMAKE_SOURCE_DIR}/cmake")
 include(NoInSourceBuilds)
 
 # Optional: include the iwyu cmake module, useful for checking includes
-find_program(IWYU_PATH NAMES include-what-you-use iwyu)
+#find_program(IWYU_PATH NAMES include-what-you-use iwyu)
 # ------------------------------------------ #
 # Global cmake variables
 # ------------------------------------------ #

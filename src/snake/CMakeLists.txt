@@ -4,16 +4,21 @@ if (CMAKE_VERSION VERSION_GREATER_EQUAL "3.24.0")
     cmake_policy(SET CMP0135 NEW)
 endif()
 
-set(TARGET_NAME "my_module")
-add_executable(${TARGET_NAME} ${CMAKE_CURRENT_SOURCE_DIR}/main.cpp)
+set(TARGET_NAME "snake")
+add_executable(${TARGET_NAME} 
+    ${CMAKE_CURRENT_SOURCE_DIR}/main.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/Game.cpp    
+)
+
+
 set_target_properties(${TARGET_NAME} PROPERTIES
                       CMAKE_CXX_STANDARD 20
                       CXX_EXTENSIONS OFF
-                      CXX_INCLUDE_WHAT_YOU_USE ${IWYU_PATH}
+                      #CXX_INCLUDE_WHAT_YOU_USE ${IWYU_PATH}
                       )
 
 # GL must be linked after raylib
-target_link_libraries(${TARGET_NAME} PUBLIC dcplib raylib GL)
+target_link_libraries(${TARGET_NAME} PUBLIC dcplib GL)
 
 # ---- ROMDISK generation ----
 set(ROMDISK_DIR "romdisk")
